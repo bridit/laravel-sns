@@ -56,6 +56,7 @@ return [
 
     'sns' => [
       'driver' => 'sns',
+      'route' => '/aws/sns',
       'key' => env('AWS_ACCESS_KEY_ID'), // optional
       'secret' => env('AWS_SECRET_ACCESS_KEY'), // optional
       'region' => env('SNS_REGION'),

@@ -3,6 +3,7 @@
 namespace Bridit\Sns;
 
 use Aws\Laravel\AwsFacade as Aws;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 use Bridit\Sns\Services\SnsBroadcaster;
 use Illuminate\Contracts\Config\Repository;
@@ -44,18 +45,20 @@ class SnsBroadcastServiceProvider extends ServiceProvider
    */
   private function snsRouteRegister()
   {
+    $route = Config::get('broadcasting.connections.sns.route', '/aws/sns');
+
     if ($this->app instanceof LaravelApplication) {
       $this->app['router']
         ->middleware('web')
-        ->any('/aws/sns', 'Rennokki\LaravelSnsEvents\Http\Controllers\SnsController@handle');
+        ->any($route, 'Rennokki\LaravelSnsEvents\Http\Controllers\SnsController@handle');
     } elseif ($this->app instanceof LumenApplication) {
-      $this->app['router']->group([], function ($router) {
-        $router->get('/aws/sns', 'Rennokki\LaravelSnsEvents\Http\Controllers\SnsController@handle');
-        $router->post('/aws/sns', 'Rennokki\LaravelSnsEvents\Http\Controllers\SnsController@handle');
-        $router->put('/aws/sns', 'Rennokki\LaravelSnsEvents\Http\Controllers\SnsController@handle');
-        $router->patch('/aws/sns', 'Rennokki\LaravelSnsEvents\Http\Controllers\SnsController@handle');
-        $router->delete('/aws/sns', 'Rennokki\LaravelSnsEvents\Http\Controllers\SnsController@handle');
-        $router->options('/aws/sns', 'Rennokki\LaravelSnsEvents\Http\Controllers\SnsController@handle');
+      $this->app['router']->group([], function ($router) use ($route) {
+        $router->get($route, 'Rennokki\LaravelSnsEvents\Http\Controllers\SnsController@handle');
+        $router->post($route, 'Rennokki\LaravelSnsEvents\Http\Controllers\SnsController@handle');
+        $router->put($route, 'Rennokki\LaravelSnsEvents\Http\Controllers\SnsController@handle');
+        $router->patch($route, 'Rennokki\LaravelSnsEvents\Http\Controllers\SnsController@handle');
+        $router->delete($route, 'Rennokki\LaravelSnsEvents\Http\Controllers\SnsController@handle');
+        $router->options($route, 'Rennokki\LaravelSnsEvents\Http\Controllers\SnsController@handle');
       });
     }
   }
