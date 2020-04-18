@@ -1,0 +1,46 @@
+{
+  "name": "bridit/laravel-sns",
+  "description": "Laravel Broadcasting SNS",
+  "keywords": [
+    "bridit",
+    "aws",
+    "sns",
+    "laravel",
+    "broadcast"
+  ],
+  "type": "library",
+  "homepage": "https://github.com/bridit/laravel-sns",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Gustavo Siqueira",
+      "email": "gus@brid-it.com"
+    }
+  ],
+  "require": {
+    "php": "^7.1",
+    "aws/aws-sdk-php-laravel": "^3.0",
+    "illuminate/broadcasting": "^5.8|^6.0|^7.0",
+    "illuminate/support": "^5.8|^6.0|^7.0",
+    "rennokki/laravel-sns-events": "^1.1"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Bridit\\SNS\\SnsBroadcastServiceProvider"
+      ]
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Bridit\\SNS\\": "src"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit",
+    "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+  },
+  "config": {
+    "sort-packages": true
+  }
+}
