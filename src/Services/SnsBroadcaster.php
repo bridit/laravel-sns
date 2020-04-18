@@ -1,6 +1,6 @@
 <?php
 
-namespace Bridit\SNS\Services;
+namespace Bridit\Sns\Services;
 
 use Aws\Sns\SnsClient;
 use Illuminate\Http\Request;

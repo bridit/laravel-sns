@@ -27,13 +27,13 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Bridit\\SNS\\SnsBroadcastServiceProvider"
+        "Bridit\\Sns\\SnsBroadcastServiceProvider"
       ]
     }
   },
   "autoload": {
     "psr-4": {
-      "Bridit\\SNS\\": "src"
+      "Bridit\\Sns\\": "src"
     }
   },
   "scripts": {

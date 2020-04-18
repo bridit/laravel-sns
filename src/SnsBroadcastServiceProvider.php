@@ -1,10 +1,10 @@
 <?php
 
-namespace Bridit\SNS;
+namespace Bridit\Sns;
 
 use Aws\Laravel\AwsFacade as Aws;
 use Illuminate\Support\ServiceProvider;
-use Bridit\SNS\Services\SnsBroadcaster;
+use Bridit\Sns\Services\SnsBroadcaster;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Broadcasting\BroadcastManager;
 use Laravel\Lumen\Application as LumenApplication;
