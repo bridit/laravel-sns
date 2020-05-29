@@ -22,7 +22,7 @@
     "aws/aws-sdk-php-laravel": "^3.0",
     "illuminate/broadcasting": "^5.8|^6.0|^7.0",
     "illuminate/support": "^5.8|^6.0|^7.0",
-    "rennokki/laravel-sns-events": "^1.1"
+    "rennokki/laravel-sns-events": "^3.0"
   },
   "extra": {
     "laravel": {
