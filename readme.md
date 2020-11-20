@@ -59,19 +59,19 @@ event(new OrderShipped($order));
 ```
 
 The package comes with two event classes:
-* `Rennokki\LaravelSnsEvents\Events\SnsEvent` - triggered on each SNS message
+* `Rennokki\LaravelSnsEvents\Events\SnsNotification` - triggered on each SNS message
 * `Rennokki\LaravelSnsEvents\Events\SnsSubscriptionConfirmation` - triggered when the subscription is confirmed
 
 To process the events, you should add the events in your `app/Providers/EventServiceProvider.php`:
 ```php
-use Rennokki\LaravelSnsEvents\Events\SnsEvent;
+use Rennokki\LaravelSnsEvents\Events\SnsNotification;
 use Rennokki\LaravelSnsEvents\Events\SnsSubscriptionConfirmation;
 
 ...
 
 protected $listen = [
     ...
-    SnsEvent::class => [
+    SnsNotification::class => [
         // add your listeners here for SNS events
     ],
     SnsSubscriptionConfirmation::class => [
@@ -88,27 +88,9 @@ class MyListener
 
     public function handle($event)
     {
-        // $event->message is an array
+        // $event->payload is an array
     }
 }
-```
-
-For example, synthetizing an AWS Polly Text-To-Speech would return in `$event->message` an array like this:
-```
-[
-    'taskId' => '...',
-    'taskStatus' => 'FAILED',
-    'taskStatusReason' => 'Error occurred while trying to upload file to S3. Please verify that the bucket existsin this region and you have permission to write objects to the specified bucket.',
-    'outputUri' => 's3://...',
-    'creationTime' => '2019-05-29T15:27:31.231Z',
-    'requestCharacters' => 58,
-    'snsTopicArn' => '...',
-    'outputFormat' => 'Mp3',
-    'sampleRate' => '22050',
-    'speechMarkTypes' => [],
-    'textType' => 'Text',
-    'voiceId' => 'Joanna',
-]
 ```
 
 ## License
