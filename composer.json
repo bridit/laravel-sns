@@ -18,11 +18,11 @@
     }
   ],
   "require": {
-    "php": "^7.1|^8.0",
+    "php": "^7.1|^8.0|^8.1",
     "aws/aws-sdk-php-laravel": "^3.0",
-    "illuminate/broadcasting": "^5.8|^6.0|^7.0|^8.0",
-    "illuminate/support": "^5.8|^6.0|^7.0|^8.0",
-    "rennokki/laravel-sns-events": "^6.2"
+    "illuminate/broadcasting": "^5.8|^6.0|^7.0|^8.0|^9.0",
+    "illuminate/support": "^5.8|^6.0|^7.0|^8.0|^9.0",
+    "rennokki/laravel-sns-events": "^7.0"
   },
   "extra": {
     "laravel": {
